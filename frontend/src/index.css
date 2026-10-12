@@ -1,0 +1,37 @@
+:root {
+  --color-bg: #f7f7f8;
+  --color-surface: #ffffff;
+  --color-border: #e2e2e6;
+  --color-text: #1a1a1e;
+  --color-muted: #6b6b73;
+  --color-hover: #f0f0f2;
+  --color-accent: #2f5fff;
+  --color-accent-contrast: #ffffff;
+  --color-success-bg: #e3f6e8;
+  --color-success-text: #1f8a3b;
+  --color-warning-bg: #fdf3d8;
+  --color-warning-text: #9a6a00;
+  --color-danger-bg: #fbe4e4;
+  --color-danger-text: #c1272d;
+
+  color-scheme: light;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+}
+
+a {
+  color: var(--color-accent);
+}
