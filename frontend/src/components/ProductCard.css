@@ -1,0 +1,118 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.product-image {
+  aspect-ratio: 4 / 3;
+  background: var(--color-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-image-placeholder {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.product-body {
+  padding: 0.85rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.product-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-muted);
+}
+
+.product-name {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.product-description {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+}
+
+.product-price {
+  font-weight: 700;
+}
+
+.stock-badge {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.stock-badge.stock-ok {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.stock-badge.stock-low {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+.stock-badge.stock-out {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}
+
+.add-to-cart-button {
+  margin-top: 0.65rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 6px;
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-to-cart-button:disabled {
+  background: var(--color-hover);
+  border-color: var(--color-border);
+  color: var(--color-muted);
+  cursor: not-allowed;
+}
