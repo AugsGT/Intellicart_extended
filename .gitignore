@@ -1,0 +1,6 @@
+# Claude Code local config (dev-server launch config, etc.)
+.claude/
+
+# Database backups
+backups/
+deploy/.env
