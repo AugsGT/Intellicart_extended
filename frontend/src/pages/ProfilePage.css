@@ -1,0 +1,143 @@
+.profile-page h1 {
+  margin-bottom: 1rem;
+}
+
+.profile-page h2 {
+  margin-top: 2rem;
+}
+
+.account-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  max-width: 520px;
+}
+
+.account-username {
+  display: block;
+  font-weight: 600;
+}
+
+.account-email {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.account-role {
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background: var(--color-hover);
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+}
+
+.logout-button {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+  color: var(--color-danger-text);
+}
+
+.account-card-guest {
+  justify-content: space-between;
+}
+
+.account-card-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.order-history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 520px;
+}
+
+.order-history-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.order-history-row:hover {
+  background: var(--color-hover);
+}
+
+.order-id {
+  display: block;
+  font-weight: 600;
+}
+
+.order-date {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.order-item-count {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.order-status-failed {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-danger-text);
+  background: var(--color-danger-bg);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.order-total {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.purchase-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.purchase-stats div {
+  background: #fff;
+  border: 1px solid #e2e4e9;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.purchase-stats strong {
+  font-size: 1.1rem;
+}
+
+.purchase-stats span {
+  color: #6b7280;
+  font-size: 0.8rem;
+}
