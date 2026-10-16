@@ -1,0 +1,44 @@
+.intervention-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+}
+
+.intervention-message {
+  font-size: 0.9rem;
+}
+
+.intervention-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.intervention-cta {
+  color: var(--color-accent-contrast);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: underline;
+}
+
+.intervention-dismiss {
+  background: none;
+  border: none;
+  color: var(--color-accent-contrast);
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 0.1rem;
+  opacity: 0.85;
+}
+
+.intervention-dismiss:hover {
+  opacity: 1;
+}
