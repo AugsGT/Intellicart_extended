@@ -1,0 +1,533 @@
+/* Operations console styles, scoped under .ops-shell (generated from the old ops-frontend CSS). */
+
+/* from index.css */
+.ops-shell {
+  --color-bg: #f5f6f8;
+  --color-surface: #ffffff;
+  --color-border: #e2e4e9;
+  --color-text: #171923;
+  --color-muted: #6b7280;
+  --color-hover: #f0f1f4;
+  --color-accent: #4f5fff;
+  --color-accent-contrast: #ffffff;
+  --color-success-bg: #e3f6e8;
+  --color-success-text: #1f8a3b;
+  --color-warning-bg: #fdf3d8;
+  --color-warning-text: #9a6a00;
+  --color-danger-bg: #fbe4e4;
+  --color-danger-text: #c1272d;
+
+  --sidebar-bg: #11131f;
+  --sidebar-text: #c7c9d9;
+  --sidebar-text-active: #ffffff;
+  --sidebar-hover: #1c1f33;
+
+  color-scheme: light;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.ops-shell, .ops-shell * {
+  box-sizing: border-box;
+}
+
+.ops-shell {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.ops-shell h1, .ops-shell h2, .ops-shell h3 {
+  line-height: 1.2;
+}
+
+.ops-shell a {
+  color: var(--color-accent);
+}
+
+.ops-shell table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ops-shell th, .ops-shell td {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.9rem;
+}
+
+.ops-shell th {
+  color: var(--color-muted);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.ops-shell .panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.ops-shell .badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+}
+
+.ops-shell .badge-healthy, .ops-shell .badge-confirmed, .ops-shell .badge-paid, .ops-shell .badge-resolved {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.ops-shell .badge-low_stock, .ops-shell .badge-pending, .ops-shell .badge-medium {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+.ops-shell .badge-out_of_stock, .ops-shell .badge-failed, .ops-shell .badge-cancelled, .ops-shell .badge-high, .ops-shell .badge-unresolved {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}
+
+.ops-shell .page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.ops-shell .page-header h1 {
+  margin: 0;
+}
+
+.ops-shell .btn {
+  padding: 0.5rem 0.85rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.ops-shell .btn-primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-weight: 600;
+}
+
+.ops-shell .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ops-shell .error-message {
+  color: var(--color-danger-text);
+}
+
+.ops-shell .muted {
+  color: var(--color-muted);
+}
+
+.ops-shell .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.ops-shell .analytics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.ops-shell .analytics-grid h2 {
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+.ops-shell .analytics-wide {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 900px) {
+.ops-shell .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* from Layout.css */
+.ops-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.ops-shell .ops-sidebar {
+  width: 230px;
+  flex-shrink: 0;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  display: flex;
+  flex-direction: column;
+}
+
+.ops-shell .ops-sidebar-header {
+  padding: 1.25rem 1.25rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ops-shell .ops-logo {
+  display: block;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.ops-shell .ops-logo-sub {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--sidebar-text);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ops-shell .ops-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.ops-shell .ops-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--sidebar-text);
+  font-size: 0.9rem;
+}
+
+.ops-shell .ops-nav-link:hover {
+  background: var(--sidebar-hover);
+}
+
+.ops-shell .ops-nav-link.active {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.ops-shell .ops-nav-icon {
+  font-size: 1rem;
+}
+
+.ops-shell .ops-sidebar-footer {
+  margin-top: auto;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.ops-shell .ops-user-name {
+  display: block;
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.ops-shell .ops-user-role {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--sidebar-text);
+  text-transform: uppercase;
+}
+
+.ops-shell .ops-logout-button {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--sidebar-text);
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ops-shell .ops-logout-button:hover {
+  background: var(--sidebar-hover);
+  color: #fff;
+}
+
+.ops-shell .ops-main {
+  flex: 1;
+  min-width: 0;
+  padding: 2rem;
+}
+
+@media (max-width: 900px) {
+.ops-shell {
+    flex-direction: column;
+  }
+
+.ops-shell .ops-sidebar {
+    width: 100%;
+  }
+
+.ops-shell .ops-nav-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+.ops-shell .ops-main {
+    padding: 1.25rem;
+  }
+}
+
+/* from StatCard.css */
+.ops-shell .stat-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ops-shell .stat-label {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.ops-shell .stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.ops-shell .stat-card-danger .stat-value {
+  color: var(--color-danger-text);
+}
+
+.ops-shell .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* from OrdersPage.css */
+.ops-shell .clickable-row {
+  cursor: pointer;
+}
+
+.ops-shell .clickable-row:hover {
+  background: var(--color-hover);
+}
+
+.ops-shell .order-details-row td {
+  background: var(--color-bg);
+}
+
+.ops-shell .order-details-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 1.5rem;
+  padding: 0.75rem 0.5rem;
+}
+
+.ops-shell .order-details-content ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.85rem;
+}
+
+.ops-shell .order-details-content p {
+  margin: 0.4rem 0 0;
+  font-size: 0.85rem;
+}
+
+.ops-shell .order-details-content select {
+  margin-top: 0.4rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+}
+
+@media (max-width: 900px) {
+.ops-shell .order-details-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* from InventoryPage.css */
+.ops-shell .inventory-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 0.75rem 0.5rem;
+}
+
+.ops-shell .restock-inputs {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.ops-shell .restock-inputs input {
+  width: 120px;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+}
+
+.ops-shell .history-table {
+  margin-top: 0.5rem;
+}
+
+.ops-shell .history-table td {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+.ops-shell .history-table .positive {
+  color: var(--color-success-text);
+}
+
+.ops-shell .history-table .negative {
+  color: var(--color-danger-text);
+}
+
+@media (max-width: 900px) {
+.ops-shell .inventory-detail {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* from OverviewPage.css */
+.ops-shell .overview-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.ops-shell .simple-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.ops-shell .simple-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+}
+
+.ops-shell .simple-list .small {
+  margin-left: auto;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+.ops-shell .overview-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* statuses added by the Django backend */
+.ops-shell .badge-shipped, .ops-shell .badge-refunded {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+.ops-shell .badge-delivered {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+/* ---- demand intelligence and analytics ---- */
+.ops-shell .bar-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.ops-shell .bar-row { display: grid; grid-template-columns: 140px 1fr auto; align-items: center; gap: 0.6rem; font-size: 0.85rem; }
+.ops-shell .bar-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ops-shell .bar-track { background: var(--color-hover); border-radius: 999px; height: 10px; overflow: hidden; }
+.ops-shell .bar-fill { background: var(--color-accent); height: 100%; border-radius: 999px; }
+.ops-shell .bar-value { font-weight: 600; min-width: 2rem; text-align: right; }
+
+.ops-shell .demand-chart { width: 100%; height: auto; }
+.ops-shell .chart-grid { stroke: var(--color-border); stroke-width: 1; }
+.ops-shell .chart-axis { fill: var(--color-muted); font-size: 9px; }
+.ops-shell .chart-bar { fill: #b7beff; }
+.ops-shell .chart-line { stroke: var(--color-accent); stroke-width: 2; }
+
+.ops-shell .period-bars { display: flex; align-items: flex-end; gap: 0.35rem; height: 160px; padding-top: 1rem; }
+.ops-shell .period-bar { flex: 1; min-width: 14px; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 2px; }
+.ops-shell .period-fill { width: 100%; background: var(--color-accent); border-radius: 3px 3px 0 0; min-height: 2px; }
+.ops-shell .period-value { font-size: 0.7rem; color: var(--color-muted); }
+.ops-shell .period-label { font-size: 0.65rem; color: var(--color-muted); white-space: nowrap; }
+
+.ops-shell .segmented { display: inline-flex; border: 1px solid var(--color-border); border-radius: 6px; overflow: hidden; }
+.ops-shell .segmented button { padding: 0.35rem 0.8rem; border: none; background: var(--color-surface); cursor: pointer; font-size: 0.8rem; }
+.ops-shell .segmented button.active { background: var(--color-accent); color: var(--color-accent-contrast); }
+
+.ops-shell .how-to-read { margin-bottom: 1.25rem; font-size: 0.85rem; }
+.ops-shell .how-to-read summary { cursor: pointer; font-weight: 600; }
+.ops-shell .how-to-read li { margin: 0.4rem 0; }
+.ops-shell .small { font-size: 0.78rem; }
+
+.ops-shell .badge-trend-increasing { background: var(--color-success-bg); color: var(--color-success-text); }
+.ops-shell .badge-trend-decreasing { background: var(--color-warning-bg); color: var(--color-warning-text); }
+.ops-shell .badge-trend-stable, .ops-shell .badge-trend-insufficient_data, .ops-shell .badge-risk-no_recent_sales { background: var(--color-hover); color: var(--color-muted); }
+.ops-shell .badge-spike { background: #e8e9ff; color: var(--color-accent); margin-left: 0.3rem; }
+.ops-shell .badge-risk-ok { background: var(--color-success-bg); color: var(--color-success-text); }
+.ops-shell .badge-risk-warning { background: var(--color-warning-bg); color: var(--color-warning-text); }
+.ops-shell .badge-risk-critical, .ops-shell .badge-risk-stocked_out { background: var(--color-danger-bg); color: var(--color-danger-text); }
+
+/* ---- operations assistant ---- */
+.ops-shell .ops-assistant-controls { display: flex; gap: 0.5rem; }
+.ops-shell .ops-assistant-controls select { padding: 0.4rem 0.6rem; border: 1px solid var(--color-border); border-radius: 6px; max-width: 280px; }
+.ops-shell .ops-chat { display: flex; flex-direction: column; height: calc(100vh - 14rem); min-height: 420px; padding: 0; overflow: hidden; }
+.ops-shell .ops-chat-body { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 0.9rem; }
+.ops-shell .ops-turn { display: flex; flex-direction: column; gap: 0.5rem; }
+.ops-shell .ops-turn.user { align-items: flex-end; }
+.ops-shell .ops-turn.assistant { align-items: flex-start; }
+.ops-shell .ops-bubble { max-width: 85%; padding: 0.6rem 0.85rem; border-radius: 12px; font-size: 0.88rem; line-height: 1.4; white-space: pre-wrap; }
+.ops-shell .ops-bubble.user { background: var(--color-accent); color: var(--color-accent-contrast); }
+.ops-shell .ops-bubble.assistant { background: var(--color-hover); }
+.ops-shell .ops-bubble.typing { color: var(--color-muted); font-style: italic; }
+.ops-shell .ops-answer-table { width: 100%; overflow-x: auto; border: 1px solid var(--color-border); border-radius: 8px; }
+.ops-shell .ops-tools-used { font-size: 0.75rem; color: var(--color-muted); }
+.ops-shell .ops-tools-used summary { cursor: pointer; }
+.ops-shell .ops-tools-used ul { margin: 0.3rem 0 0; padding-left: 1.1rem; }
+.ops-shell .ops-suggestions { display: flex; flex-direction: column; gap: 0.4rem; align-items: flex-start; }
+.ops-shell .ops-suggestions button { text-align: left; padding: 0.5rem 0.75rem; border: 1px solid var(--color-border); background: var(--color-surface); border-radius: 8px; cursor: pointer; font-size: 0.85rem; }
+.ops-shell .ops-suggestions button:hover:not(:disabled) { background: var(--color-hover); }
+.ops-shell .ops-chat-input { display: flex; gap: 0.5rem; padding: 0.75rem; border-top: 1px solid var(--color-border); }
+.ops-shell .ops-chat-input input { flex: 1; padding: 0.55rem 0.7rem; border: 1px solid var(--color-border); border-radius: 8px; font-size: 0.9rem; }
+
+/* ---- audit log ---- */
+.ops-shell .audit-filters { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin-bottom: 1rem; }
+.ops-shell .audit-filters select, .ops-shell .audit-filters input { padding: 0.4rem 0.55rem; border: 1px solid var(--color-border); border-radius: 6px; font-size: 0.85rem; }
+.ops-shell .audit-filters label { font-size: 0.8rem; color: var(--color-muted); display: flex; align-items: center; gap: 0.35rem; }
+.ops-shell .audit-details { margin: 0.4rem 0 0; padding: 0.5rem; background: var(--color-hover); border-radius: 6px; font-size: 0.72rem; white-space: pre-wrap; }
+.ops-shell .audit-pager { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1rem; }
