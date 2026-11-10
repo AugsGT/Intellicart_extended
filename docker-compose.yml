@@ -1,0 +1,72 @@
+# Production-style stack. Written but NOT run during development (Docker was unavailable).
+# Usage: cp deploy/.env.example deploy/.env   (fill in secrets), then
+#        docker compose --env-file deploy/.env up --build
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      retries: 10
+
+  redis:
+    image: redis:7
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      retries: 10
+
+  web:
+    build: ./backend
+    env_file: deploy/.env
+    environment: &backend-env
+      DB_HOST: db
+      RABBITMQ_URL: amqp://${RABBITMQ_USER}:${RABBITMQ_PASSWORD}@rabbitmq:5672/%2F
+      REDIS_URL: redis://redis:6379/0
+      CACHE_URL: redis://redis:6379/1
+      EVENT_TRANSPORT: rabbitmq
+    depends_on:
+      db: {condition: service_healthy}
+      rabbitmq: {condition: service_healthy}
+    command: sh -c "python manage.py migrate --noinput && gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 3 --timeout 60"
+
+  worker:
+    build: ./backend
+    env_file: deploy/.env
+    environment: *backend-env
+    depends_on: [web]
+    command: celery -A config worker -l info
+
+  consumer:
+    build: ./backend
+    env_file: deploy/.env
+    environment: *backend-env
+    depends_on: [web]
+    restart: unless-stopped
+    command: python manage.py run_event_consumer
+
+  beat:
+    build: ./backend
+    env_file: deploy/.env
+    environment: *backend-env
+    depends_on: [web]
+    command: celery -A config beat -l info
+
+  frontend:
+    build: ./frontend
+    depends_on: [web]
+    ports: ["8080:80"]
+
+volumes:
+  pgdata:
